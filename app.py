@@ -37,8 +37,6 @@ Cordialement,
         return f"""
 Bonjour,
 
-Notre équipe vous remercie pour votre mail sur requisitions@qonto.com.
-
 Référence : {ref}
 
 Vous trouverez en pièce jointe le carton de signature du compte {iban} de la société {company}.
