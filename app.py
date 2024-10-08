@@ -42,20 +42,27 @@ reference = st.text_input("Référence :")
 iban = st.text_input("IBAN :")
 company = st.text_input("Nom de la société :")
 
-# Options pour le cas
-case_options = [
-    "Tous les relevés demandés",
-    "Aucune transaction sur une période mais transactions sur le reste",
-    "Aucune transaction sur toutes les périodes demandées",
-    "Demande de cartons de signature à la place des relevés"
-]
+# Options pour les cas avec des cases à cocher
+case_tous_releves = st.checkbox("Tous les relevés demandés")
+case_aucune_transaction_periode = st.checkbox("Aucune transaction sur une période mais transactions sur le reste")
+case_aucune_transaction_total = st.checkbox("Aucune transaction sur toutes les périodes demandées")
+case_carton_signature = st.checkbox("Demande de cartons de signature à la place des relevés")
 
-case = st.selectbox("Sélectionnez un cas :", case_options)
+# Vérification de quel cas est sélectionné
+case = None
+if case_tous_releves:
+    case = "Tous les relevés demandés"
+elif case_aucune_transaction_periode:
+    case = "Aucune transaction sur une période mais transactions sur le reste"
+elif case_aucune_transaction_total:
+    case = "Aucune transaction sur toutes les périodes demandées"
+elif case_carton_signature:
+    case = "Demande de cartons de signature à la place des relevés"
 
 # Bouton pour générer le message
 if st.button("Générer le message"):
-    if reference and iban and company:
+    if reference and iban and company and case:
         message = generate_message(reference, iban, company, case)
         st.text_area("Message généré :", value=message, height=300)
     else:
-        st.error("Veuillez remplir tous les champs.")
+        st.error("Veuillez remplir tous les champs et sélectionner au moins un cas.")
