@@ -46,18 +46,18 @@ Cordialement,
     return ""
 
 # Titre de l'application
-st.title("Générateur de Messages")
+st.title("Messages BRS")
 
 # Champs du formulaire
 reference = st.text_input("Référence :")
 iban = st.text_input("IBAN :")
-company = st.text_input("Nom de la société :")
+company = st.text_input("Société :")
 
 # Options pour les cas avec des cases à cocher
 case_tous_releves = st.checkbox("Tous les relevés demandés")
-case_aucune_transaction_periode = st.checkbox("Aucune transaction sur une période mais transactions sur le reste")
-case_aucune_transaction_total = st.checkbox("Aucune transaction sur toutes les périodes demandées")
-case_carton_signature = st.checkbox("Demande de cartons de signature à la place des relevés")
+case_aucune_transaction_periode = st.checkbox("Période manquante")
+case_aucune_transaction_total = st.checkbox("Aucune transaction")
+case_carton_signature = st.checkbox("Cartons de signature")
 
 # Vérification de quel cas est sélectionné
 case = None
