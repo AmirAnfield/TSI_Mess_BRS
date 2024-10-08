@@ -4,34 +4,34 @@ import streamlit as st
 def generate_message(ref, iban, company, case):
     if case == "Tous les relevés demandés":
         return f"""
-        Bonjour,
-        Référence : {ref}
-        Vous trouverez en pièce jointe le relevé bancaire sur les périodes demandées du compte {iban} de la société {company}.
-        Cordialement,
-        """
+Bonjour,
+Référence : {ref}
+Vous trouverez en pièce jointe le relevé bancaire sur les périodes demandées du compte {iban} de la société {company}.
+Cordialement,
+        """.strip()
     elif case == "Aucune transaction sur une période mais transactions sur le reste":
         return f"""
-        Bonjour,
-        Référence : {ref}
-        Vous trouverez en pièce jointe le relevé bancaire sur les périodes demandées du compte {iban} de la société {company}.
-        - Pas de transaction pour les autres périodes demandées.
-        Cordialement,
-        """
+Bonjour,
+Référence : {ref}
+Vous trouverez en pièce jointe le relevé bancaire sur les périodes demandées du compte {iban} de la société {company}.
+- Pas de transaction pour les autres périodes demandées.
+Cordialement,
+        """.strip()
     elif case == "Aucune transaction sur toutes les périodes demandées":
         return f"""
-        Bonjour,
-        Référence : {ref}
-        Aucune transaction pour les périodes demandées du compte {iban} de la société {company}.
-        Cordialement,
-        """
+Bonjour,
+Référence : {ref}
+Aucune transaction pour les périodes demandées du compte {iban} de la société {company}.
+Cordialement,
+        """.strip()
     elif case == "Demande de cartons de signature à la place des relevés":
         return f"""
-        Bonjour,
-        Notre équipe vous remercie pour votre mail sur requisitions@qonto.com.
-        Référence : {ref}
-        Vous trouverez en pièce jointe le carton de signature du compte {iban} de la société {company}.
-        Cordialement,
-        """
+Bonjour,
+Notre équipe vous remercie pour votre mail sur requisitions@qonto.com.
+Référence : {ref}
+Vous trouverez en pièce jointe le carton de signature du compte {iban} de la société {company}.
+Cordialement,
+        """.strip()
     return ""
 
 # Titre de l'application
